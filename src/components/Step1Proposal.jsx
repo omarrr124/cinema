@@ -4,9 +4,11 @@ import { MouseFollowingEyes } from './ui/MouseFollowingEyes';
 export default function Step1Proposal({ onNext }) {
   const [noStyle, setNoStyle] = useState({});
   const [isEscaping, setIsEscaping] = useState(false);
+  const [yesScale, setYesScale] = useState(1);
 
   const handleHover = () => {
     setIsEscaping(true);
+    setYesScale(prev => prev + 0.15); // Grow by 15% each hover
     const randomX = Math.floor(Math.random() * 80) + 10;
     const randomY = Math.floor(Math.random() * 80) + 10;
     
@@ -42,7 +44,16 @@ export default function Step1Proposal({ onNext }) {
         </h2>
 
         <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', minHeight: '60px', marginTop: '1.5rem' }} className="nav-buttons">
-          <button className="btn" onClick={onNext} style={{ zIndex: 100 }}>
+          <button 
+            className="btn" 
+            onClick={onNext} 
+            style={{ 
+              zIndex: 100, 
+              transform: `scale(${yesScale})`, 
+              transition: 'transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)', // Add a little bounce to the growth
+              transformOrigin: 'center'
+            }}
+          >
             Yes, I'd love to!
           </button>
           <button 
