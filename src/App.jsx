@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Step0Landing from './components/Step0Landing';
+import CustomCursor from './components/ui/CustomCursor';
 import Step1Proposal from './components/Step1Proposal';
 import Step2DateTime from './components/Step2DateTime';
 import Step3Snacks from './components/Step3Snacks';
@@ -36,6 +37,7 @@ function App() {
 
   return (
     <>
+      <CustomCursor />
       <div className="floating-elements">
         <div className="shape shape-1"></div>
         <div className="shape shape-2"></div>
