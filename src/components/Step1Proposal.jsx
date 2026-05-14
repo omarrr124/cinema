@@ -31,15 +31,17 @@ export default function Step1Proposal({ onNext }) {
         />
       </div>
       <div className="column-right" style={{ position: 'relative' }}>
-        <h1 className="title" style={{ marginBottom: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+        <h1 className="title" style={{ marginTop: '1.5rem', marginBottom: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem', flexWrap: 'wrap' }}>
           <span>Yoo Mariem!</span>
-          <MouseFollowingEyes />
+          <div style={{ transform: 'scale(0.8)' }}>
+            <MouseFollowingEyes />
+          </div>
         </h1>
         <h2 style={{ marginBottom: '1.5rem', marginTop: '1rem', fontSize: '1.8rem', lineHeight: '1.4' }}>
           wanna go to the movie?
         </h2>
 
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', minHeight: '60px', marginTop: '1rem' }} className="nav-buttons">
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', minHeight: '60px', marginTop: '1.5rem' }} className="nav-buttons">
           <button className="btn" onClick={onNext} style={{ zIndex: 100 }}>
             Yes, I'd love to!
           </button>
