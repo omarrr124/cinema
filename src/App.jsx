@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Step0Landing from './components/Step0Landing';
 import CustomCursor from './components/ui/CustomCursor';
+import { SmokeBackground } from './components/ui/spooky-smoke-animation';
 import Step1Proposal from './components/Step1Proposal';
 import Step2DateTime from './components/Step2DateTime';
 import Step3Snacks from './components/Step3Snacks';
@@ -38,12 +39,18 @@ function App() {
   return (
     <>
       <CustomCursor />
+      
+      {/* Background Smoke Animation Layer */}
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-50">
+        <SmokeBackground smokeColor="#ffffff" />
+      </div>
+
       <div className="floating-elements">
         <div className="shape shape-1"></div>
         <div className="shape shape-2"></div>
       </div>
       
-      <div className="app-container">
+      <div className="app-container relative z-10">
         {step === 0 && <Step0Landing onNext={nextStep} />}
         {step === 1 && <Step1Proposal onNext={nextStep} />}
         {step === 2 && <Step2DateTime data={data} updateData={updateData} onNext={nextStep} onPrev={prevStep} />}
