@@ -98,8 +98,7 @@ export default function Step2DateTime({ data, updateData, onNext, onPrev }) {
             dateFormat="MMMM d, yyyy"
             placeholderText="Select a day"
             minDate={new Date()}
-            onFocus={(e) => e.target.blur()}
-            readOnly={true}
+            onFocus={(e) => e.target.readOnly = true}
           />
         </div>
 
@@ -115,8 +114,7 @@ export default function Step2DateTime({ data, updateData, onNext, onPrev }) {
             dateFormat="h:mm aa"
             className="glass-input"
             placeholderText="Select a time"
-            onFocus={(e) => e.target.blur()}
-            readOnly={true}
+            onFocus={(e) => e.target.readOnly = true}
           />
         </div>
 
