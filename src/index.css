@@ -1,0 +1,627 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+
+:root {
+  --primary: #ff4d6d;
+  --primary-hover: #ff758f;
+  --bg-gradient-start: #ffb5a7;
+  --bg-gradient-end: #fcd5ce;
+  --text-dark: #590d22;
+  --text-light: #fff0f3;
+  --glass-bg: rgba(255, 255, 255, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-shadow: 0 8px 32px 0 rgba(255, 181, 167, 0.37);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  min-height: 100vh;
+  color: var(--text-dark);
+  display: flex;
+  overflow: hidden;
+  overscroll-behavior: none;
+  overflow: hidden;
+  overscroll-behavior: none;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--text-dark);
+}
+
+.app-container {
+  width: 100%;
+  max-width: 1100px;
+  padding: 2rem;
+  position: relative;
+  z-index: 10;
+  margin: 0 auto;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  padding: 1.5rem;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out forwards;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Outfit', sans-serif;
+  box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+}
+
+.btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 77, 109, 0.6);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--primary);
+}
+
+.btn-secondary:hover {
+  background: #fff0f3;
+}
+
+/* Floating Elements Background */
+.floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+  filter: blur(50px);
+  border-radius: 50%;
+  animation: float 10s infinite ease-in-out alternate;
+}
+
+.shape-1 {
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 200, 221, 0.6);
+  top: -10%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 175, 204, 0.5);
+  bottom: -20%;
+  right: -10%;
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, -50px) scale(1.1); }
+}
+
+/* Grid for choices */
+.choices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.choice-item {
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid transparent;
+  border-radius: 16px;
+  padding: 0.8rem 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.choice-item:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateY(-5px);
+}
+
+.choice-item.selected {
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 15px rgba(255, 77, 109, 0.2);
+}
+
+.choice-icon {
+  font-size: 2rem;
+}
+
+.choice-img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.choice-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Form inputs */
+.input-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.glass-input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255, 77, 109, 0.2);
+}
+
+/* Specific elements */
+.cinema-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.cinema-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  color: var(--text-dark);
+  text-decoration: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.cinema-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  color: var(--primary);
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.summary-label {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.summary-value {
+  font-size: 1.1rem;
+}
+
+.nav-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* React DatePicker Custom Styles */
+.custom-datepicker-wrapper .react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker-popper {
+  z-index: 9999 !important;
+}
+
+.react-datepicker {
+  font-family: 'Outfit', sans-serif !important;
+  background-color: #ffffff !important;
+  border: 2px solid var(--glass-border) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+  padding: 10px;
+}
+
+.react-datepicker__header {
+  background-color: transparent !important;
+  border-bottom: 1px solid rgba(255, 77, 109, 0.2) !important;
+  padding-top: 15px !important;
+}
+
+.react-datepicker__current-month, 
+.react-datepicker-time__header, 
+.react-datepicker-year-header {
+  color: var(--text-dark) !important;
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1.2rem !important;
+}
+
+.react-datepicker__day-name, 
+.react-datepicker__day, 
+.react-datepicker__time-name {
+  color: var(--text-dark) !important;
+  width: 1.6rem !important;
+  line-height: 1.6rem !important;
+  margin: 0.15rem !important;
+  font-size: 0.95rem !important;
+  text-align: center;
+}
+
+.react-datepicker__day--outside-month {
+  color: transparent !important;
+  pointer-events: none !important;
+}
+
+.react-datepicker__day:hover, 
+.react-datepicker__month-text:hover, 
+.react-datepicker__quarter-text:hover, 
+.react-datepicker__year-text:hover {
+  background-color: var(--bg-gradient-start) !important;
+  border-radius: 50% !important;
+  color: white !important;
+}
+
+.react-datepicker__day--selected, 
+.react-datepicker__day--in-selecting-range, 
+.react-datepicker__day--in-range, 
+.react-datepicker__month-text--selected, 
+.react-datepicker__quarter-text--selected, 
+.react-datepicker__year-text--selected,
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected {
+  background-color: var(--primary) !important;
+  border-radius: 50% !important;
+  color: white !important;
+}
+
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item:hover {
+  background-color: var(--bg-gradient-start) !important;
+  color: white !important;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: var(--primary) !important;
+}
+
+/* Responsive Desktop Layout */
+@media (min-width: 800px) {
+  .glass-card {
+    padding: 3rem;
+  }
+
+  .desktop-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: stretch;
+    text-align: left;
+  }
+
+  /* When split, make sure text aligns left by default */
+  .desktop-split .title, 
+  .desktop-split .subtitle {
+    text-align: left;
+  }
+
+  .desktop-split .title {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .desktop-split .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .desktop-split .nav-buttons {
+    justify-content: flex-start;
+  }
+
+  /* Specific column classes */
+  .column-left, .column-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  /* Larger elements on desktop */
+  .choice-item {
+    padding: 1.2rem 1rem;
+    gap: 1rem;
+  }
+
+  .choice-icon {
+    font-size: 2.5rem;
+  }
+
+  .choice-img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .choice-label {
+    font-size: 1.1rem;
+  }
+
+  .choices-grid {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* Make floating shapes significantly bigger on desktop */
+  .shape-1 {
+    width: 600px;
+    height: 600px;
+  }
+
+  .shape-2 {
+    width: 800px;
+    height: 800px;
+  }
+}
+
+/* Mouse Following Eyes Styles */
+.eyes-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.eye-outer {
+  position: relative;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 9999px;
+  height: 2.5rem;
+  width: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.eye-pupil {
+  position: absolute;
+  background-color: black;
+  border-radius: 9999px;
+  height: 1rem;
+  width: 1rem;
+  transition: transform 10ms linear;
+}
+
+.eye-glint {
+  position: absolute;
+  background-color: white;
+  border-radius: 9999px;
+  height: 0.25rem;
+  width: 0.25rem;
+  bottom: 0.15rem;
+  right: 0.15rem;
+}
+
+/* Bubbly Button Styles */
+.bubbly-button {
+  font-family: var(--font-primary), 'Helvetica', 'Arial', sans-serif;
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1em 2em;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #ff0081;
+  color: #fff;
+  border-radius: 9999px; /* More modern than 4px */
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+  box-shadow: 0 4px 20px rgba(255, 0, 129, 0.4);
+}
+
+.bubbly-button:focus {
+  outline: 0;
+}
+
+.bubbly-button:before, .bubbly-button:after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 140%;
+  height: 100%;
+  left: -20%;
+  z-index: -1000;
+  transition: all ease-in-out 0.5s;
+  background-repeat: no-repeat;
+}
+
+.bubbly-button:before {
+  display: none;
+  top: -75%;
+  background-image:  
+    radial-gradient(circle, #ff0081 20%, transparent 20%),
+    radial-gradient(circle, transparent 20%, #ff0081 20%, transparent 30%),
+    radial-gradient(circle, #ff0081 20%, transparent 20%), 
+    radial-gradient(circle, #ff0081 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%),
+    radial-gradient(circle, #ff0081 20%, transparent 20%),
+    radial-gradient(circle, #ff0081 20%, transparent 20%),
+    radial-gradient(circle, #ff0081 20%, transparent 20%),
+    radial-gradient(circle, #ff0081 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+}
+
+.bubbly-button:after {
+  display: none;
+  bottom: -75%;
+  background-image:  
+    radial-gradient(circle, #ff0081 20%, transparent 20%), 
+    radial-gradient(circle, #ff0081 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%),
+    radial-gradient(circle, #ff0081 20%, transparent 20%),
+    radial-gradient(circle, #ff0081 20%, transparent 20%),
+    radial-gradient(circle, #ff0081 20%, transparent 20%),
+    radial-gradient(circle, #ff0081 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+
+.bubbly-button:active {
+  transform: scale(0.9);
+  background-color: #e60074;
+  box-shadow: 0 2px 10px rgba(255, 0, 129, 0.2);
+}
+
+.bubbly-button.animate:before {
+  display: block;
+  animation: topBubbles ease-in-out 0.75s forwards;
+}
+
+.bubbly-button.animate:after {
+  display: block;
+  animation: bottomBubbles ease-in-out 0.75s forwards;
+}
+
+@keyframes topBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+  }
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+  }
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+@keyframes bottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+  }
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+  }
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+
+/* for tutorial link only */
+.links {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 14px; /* Scaled down for reasonable size */
+    font-family: sans-serif;
+    background-color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+.links a {
+    text-decoration: none;
+    color: black;
+    margin-left: 0.5em;
+}
+.links a:hover {
+    text-decoration: underline;
+}
+.links a img.icon {
+    display: inline-block;
+    height: 1em;
+    margin: 0 0 -0.1em 0.3em;
+}
+
+
