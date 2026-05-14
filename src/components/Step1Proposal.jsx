@@ -31,10 +31,10 @@ export default function Step1Proposal({ onNext }) {
         />
       </div>
       <div className="column-right" style={{ position: 'relative' }}>
-        <div style={{ position: 'absolute', top: '1rem', right: '1rem', margin: 0 }}>
+        <h1 className="title" style={{ marginBottom: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+          <span>Yoo Mariem!</span>
           <MouseFollowingEyes />
-        </div>
-        <h1 className="title" style={{ marginBottom: 0 }}>Yoo Mariem!</h1>
+        </h1>
         <h2 style={{ marginBottom: '1.5rem', marginTop: '1rem', fontSize: '1.8rem', lineHeight: '1.4' }}>
           wanna go to the movie?
         </h2>
