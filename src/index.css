@@ -9,6 +9,7 @@
 @import "shadcn/tailwind.css";
 
 @import "@fontsource-variable/geist";
+@import "./mesh.css";
 
 :root {
   --primary: #ff4d6d;
@@ -30,7 +31,7 @@
 
 body {
   font-family: 'Outfit', sans-serif;
-  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  background-color: #fff0f3;
   min-height: 100vh;
   color: var(--text-dark);
   display: flex;
