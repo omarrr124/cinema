@@ -14,10 +14,10 @@ export default function Step0Landing({ onNext }) {
 
   return (
     <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '60vh', textAlign: 'center' }}>
-      <h1 className="title" style={{ fontSize: '3.5rem', marginBottom: '1rem' }}>
+      <h1 className="title" style={{ fontSize: 'clamp(2rem, 8vw, 3.5rem)', marginBottom: '1rem' }}>
         A Special Invitation
       </h1>
-      <p style={{ fontSize: '1.4rem', marginBottom: '3rem', color: '#831843', fontWeight: 500 }}>
+      <p style={{ fontSize: 'clamp(1rem, 4vw, 1.4rem)', marginBottom: '3rem', color: '#831843', fontWeight: 500 }}>
         I have something to ask you...
       </p>
       

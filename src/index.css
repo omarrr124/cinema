@@ -24,13 +24,12 @@ body {
   min-height: 100vh;
   color: var(--text-dark);
   display: flex;
-  overflow: hidden;
-  overscroll-behavior: none;
-  overflow: hidden;
-  overscroll-behavior: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: none;
   justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  align-items: flex-start; /* Prevent clipping top content on tall screens */
+  padding: 2rem 0; /* Add safe space to top and bottom */
 }
 
 h1, h2, h3 {
@@ -41,10 +40,16 @@ h1, h2, h3 {
 .app-container {
   width: 100%;
   max-width: 1100px;
-  padding: 2rem;
+  padding: 1rem;
   position: relative;
   z-index: 10;
   margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    padding: 2rem;
+  }
 }
 
 .glass-card {
