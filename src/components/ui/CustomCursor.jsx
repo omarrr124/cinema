@@ -8,8 +8,8 @@ const CustomCursor = () => {
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     
-    // Set color to match our Liquid Glass premium pink theme
-    ctx.strokeStyle = '#DB2777'; 
+    // Set color to match our Liquid Glass premium pink theme, but slightly transparent
+    ctx.strokeStyle = 'rgba(219, 39, 119, 0.5)'; 
 
     let mouseMoved = false;
 
@@ -18,8 +18,8 @@ const CustomCursor = () => {
       y: .5 * window.innerHeight,
     };
     const params = {
-      pointsNumber: 40,
-      widthFactor: .3,
+      pointsNumber: 20, // Reduced from 40 to make it shorter
+      widthFactor: 0.15, // Reduced from 0.3 to make it thinner
       mouseThreshold: .6,
       spring: .4,
       friction: .5
@@ -57,7 +57,7 @@ const CustomCursor = () => {
     const setupCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      ctx.strokeStyle = '#DB2777'; // Reset stroke style on resize
+      ctx.strokeStyle = 'rgba(219, 39, 119, 0.5)'; // Reset stroke style on resize
     };
 
     setupCanvas();
