@@ -40,7 +40,7 @@ h1, h2, h3 {
   padding: 1rem;
   position: relative;
   z-index: 10;
-  margin: 0 auto;
+  margin: auto; /* Vertically and horizontally center */
 }
 
 @media (min-width: 768px) {
