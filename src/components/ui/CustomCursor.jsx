@@ -18,7 +18,7 @@ const CustomCursor = () => {
       y: .5 * window.innerHeight,
     };
     const params = {
-      pointsNumber: 20, // Reduced from 40 to make it shorter
+      pointsNumber: 10, // Reduced further from 20 to 10 to make it very short
       widthFactor: 0.15, // Reduced from 0.3 to make it thinner
       mouseThreshold: .6,
       spring: .4,
