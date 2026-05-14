@@ -1,6 +1,18 @@
+import { forwardRef } from 'react';
 import { ExternalLink } from 'lucide-react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+
+const CustomDateInput = forwardRef(({ value, onClick, placeholder }, ref) => (
+  <input 
+    className="glass-input" 
+    value={value} 
+    onClick={onClick} 
+    readOnly={true} 
+    ref={ref} 
+    placeholder={placeholder} 
+  />
+));
 
 export default function Step2DateTime({ data, updateData, onNext, onPrev }) {
   const isComplete = data.date && data.time && data.location;
@@ -94,11 +106,9 @@ export default function Step2DateTime({ data, updateData, onNext, onPrev }) {
           <DatePicker 
             selected={getSelectedDate()}
             onChange={(date) => updateData({ date: date ? date.toDateString() : '' })}
-            className="glass-input"
             dateFormat="MMMM d, yyyy"
-            placeholderText="Select a day"
             minDate={new Date()}
-            onFocus={(e) => e.target.readOnly = true}
+            customInput={<CustomDateInput placeholder="Select a day" />}
           />
         </div>
 
@@ -112,9 +122,7 @@ export default function Step2DateTime({ data, updateData, onNext, onPrev }) {
             timeIntervals={15}
             timeCaption="Time"
             dateFormat="h:mm aa"
-            className="glass-input"
-            placeholderText="Select a time"
-            onFocus={(e) => e.target.readOnly = true}
+            customInput={<CustomDateInput placeholder="Select a time" />}
           />
         </div>
 
